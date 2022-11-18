@@ -101,14 +101,14 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
   for obj in results:
     # Convert the object bounding box from relative coordinates to absolute 
     # coordinates based on the original image resolution
-    x,y,w,h = cv2.boundingRect(cnt)
+    #x,y,w,h = cv2.boundingRect(cnt)
     ymin, xmin, ymax, xmax = obj['bounding_box']
     xmin = int(xmin * original_image_np.shape[1])
     xmax = int(xmax * original_image_np.shape[1])
     ymin = int(ymin * original_image_np.shape[0])
     ymax = int(ymax * original_image_np.shape[0])
-    
-    st.write(AreaofRectangle)
+    st.write(xmax-xmin)
+    #st.write(AreaofRectangle)
     # Find the class index of the current object
     class_id = int(obj['class_id'])
     st.write(classes[class_id])
