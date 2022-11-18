@@ -5,7 +5,7 @@ import os
 import numpy as np
 import PIL
 from CHECK_SSIM import show_growth_page
-from predict_page import show_predict_page
+#from predict_page import show_predict_page
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -149,7 +149,7 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         Area=Area/240
         st.write("Area of a EYE is: %.2f" %Area)
         st.markdown("__________________________")
-        AGE = regressor.predict(X)
+        AGE = regressor.predict(Area)
         st.subheader("The estimated AGE is :")
         st.write(AGE)
 
