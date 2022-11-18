@@ -150,10 +150,11 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         st.write("Area of a EYE is: %.2f" %Area)
         W = np.array([[Area]])
         W = W.astype(float)
-        st.markdown("__________________________")
+        
         AGE = regressor.predict(W)
         st.subheader("The estimated AGE is :")
-        st.write(AGE/8)
+        st.write(AGE/6)
+        st.markdown("__________________________")
 
     # Draw the bounding box and label on the image
     color = [int(c) for c in COLORS[class_id]]
