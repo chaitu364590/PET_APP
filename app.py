@@ -151,8 +151,8 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         ok = st.button("Predict AGE",key="1")
         if ok:
             AGE = regressor.predict(X)
-            st.subheader(f"The estimated AGE is ${AGE[0]:.2f}")
-        
+            st.subheader("The estimated AGE is :")
+            st.write(AGE)
 
     # Draw the bounding box and label on the image
     color = [int(c) for c in COLORS[class_id]]
