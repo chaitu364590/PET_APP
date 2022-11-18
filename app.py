@@ -115,7 +115,7 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
     class_id = int(obj['class_id'])
     
     st.write(classes[class_id])
-    if classes is not 2:
+    if classes !=[2]:
         Area = w * h
         Area=Area/240
         st.write("Area of a EYE is: %.2f" %Area)
