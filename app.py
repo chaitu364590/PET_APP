@@ -109,12 +109,13 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
     ymax = int(ymax * original_image_np.shape[0])
     w=xmax-xmin
     h=ymax-ymin
-    Area = w * h
-    st.write("Area of a EYE is: %.2f" %Area)
+    
     #st.write(AreaofRectangle)
     # Find the class index of the current object
     class_id = int(obj['class_id'])
+    
     st.write(classes[class_id])
+    st.write(classes)
 
     # Draw the bounding box and label on the image
     color = [int(c) for c in COLORS[class_id]]
