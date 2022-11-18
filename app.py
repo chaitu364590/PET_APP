@@ -23,7 +23,7 @@ model_path="pety.tflite"
 
 with open('hk.pkl', 'rb') as file:
     data = pickle.load(file)
-    return data
+return data
 regressor=data["model"]
 BREED = data["BREED"]
 RIGHT_EYE_SIZE = data["RIGHT_EYE_SIZE"]
