@@ -4,12 +4,21 @@ import tensorflow as tf
 import os
 import numpy as np
 import PIL
+from CHECK_SSIM import show_growth_page
+from predict_page import show_predict_page
 ## Page Title
 #st.set_page_config(page_title = "Cats vs Dogs Image Classification")
 st.title("PET APP")
 st.markdown("------")
-url = "https://chaitu364590-checkssim-app7-epno5m.streamlit.app/"
-st.write("check out this [GROWTH FINDER](%s)" % url)
+page = st.sidebar.selectbox("SELECT", ("GROWTH","AGE PREDICTION"))
+
+if page == "GROWTH":
+    show_growth_page()
+else:
+    show_predict_page()
+
+#url = "https://chaitu364590-checkssim-app7-epno5m.streamlit.app/"
+#st.write("check out this [GROWTH FINDER](%s)" % url)
 model_path="pety.tflite"
 
 
@@ -140,7 +149,6 @@ if uploaded_file is not None:
     st.image(detection_result_image)
 
  
-
 
 
 
