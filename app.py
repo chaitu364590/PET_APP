@@ -149,6 +149,8 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         Area=Area/240
         st.write("Area of a EYE is: %.2f" %Area)
         W = np.array([[Area]])
+        W[:, 0] = BREED.transform(X[:,0])
+        W = W.astype(float)
         st.markdown("__________________________")
         AGE = regressor.predict(W)
         st.subheader("The estimated AGE is :")
