@@ -101,6 +101,7 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
   for obj in results:
     # Convert the object bounding box from relative coordinates to absolute 
     # coordinates based on the original image resolution
+    x,y,w,h = cv2.boundingRect(cnt)
     ymin, xmin, ymax, xmax = obj['bounding_box']
     xmin = int(xmin * original_image_np.shape[1])
     xmax = int(xmax * original_image_np.shape[1])
@@ -122,12 +123,7 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
   # Return the final image
-  original_uint8 = original_image_np.astype(np.uint8)
-  def AreaofRectangle(width, height):
-    Area = width * height
-    print("Area of a EYE is: %.2f" %Area)
-        
-  AreaofRectangle((xmin, ymin), (xmax, ymax))  
+  original_uint8 = original_image_np.astype(np.uint8)  
   return original_uint8
 
 
