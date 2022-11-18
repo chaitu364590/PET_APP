@@ -6,6 +6,10 @@ import numpy as np
 import PIL
 from CHECK_SSIM import show_growth_page
 from predict_page import show_predict_page
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 ## Page Title
 #st.set_page_config(page_title = "Cats vs Dogs Image Classification")
 st.title("PET APP")
@@ -20,6 +24,31 @@ else:
 #url = "https://chaitu364590-checkssim-app7-epno5m.streamlit.app/"
 #st.write("check out this [GROWTH FINDER](%s)" % url)
 model_path="pety.tflite"
+
+df = pd.read_csv("mlpa_p.csv")
+
+y = df['AGE'].values.reshape(-1, 1)
+X = df['RIGHT_EYE_SIZE'].values.reshape(-1, 1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+SEED = 42
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = SEED)
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+def calc(slope, intercept, Area):
+    return slope*Area+intercept
+
+score = calc(regressor.coef_, regressor.intercept_, 9.5)
+
+score = regressor.predict([[9.5]])
+
+y_pred = regressor.predict(X_test)
+
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+print(f'Mean absolute error: {mae:.2f}')
+print(f'Mean squared error: {mse:.2f}')
+print(f'Root mean squared error: {rmse:.2f}')
 
 
 # Load the labels into a list
@@ -120,14 +149,9 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         Area=Area/240
         st.write("Area of a EYE is: %.2f" %Area)
         ok = st.button("Predict AGE",key="1")
-        with open('hk.pkl', 'rb') as file:
-            data = pickle.load(file)
-            regressor=data["model"]
-            BREED = data["BREED"]
-            RIGHT_EYE_SIZE = data["RIGHT_EYE_SIZE"]
-            if ok:
-                AGE = regressor.predict(X)
-                st.subheader(f"The estimated AGE is ${AGE[0]:.2f}")
+        if ok:
+            AGE = regressor.predict(X)
+            st.subheader(f"The estimated AGE is ${AGE[0]:.2f}")
         
 
     # Draw the bounding box and label on the image
