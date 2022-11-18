@@ -31,7 +31,7 @@ def show_predict_page():
     ok = st.button("Predict AGE")
     if ok:
         X = np.array([[BREED,RIGHT_EYE_SIZE ]])
-        X = X.astype(float)
+        #X = X.astype(float)
 
         AGE = regressor.predict(X)
         st.subheader(f"The estimated AGE is ${AGE[0]:.2f}")
