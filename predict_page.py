@@ -22,13 +22,6 @@ def show_predict_page():
 
     BREED = ("German shepherd","Rottweiler","Saint Bernard","Doberman","Lab","Golden retriever","Great dane","Husky","Dalmatian","Cane corso","Beagle","Poodle","Pitbull","Sheltie","Bassett hound","Cocker spaniel","Australian shepherd","English spinger spaniel","Adghan hound","Pug","Daschund","Pomeranian","Chihuahua","Shihtzu","Maltese")
 
-    
-    
-    
-    
-    
-    )
-
     BREED = st.selectbox("BREED", BREED)
     
     #education = st.selectbox("Education Level", education)
