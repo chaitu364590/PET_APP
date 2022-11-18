@@ -21,11 +21,9 @@ else:
 #st.write("check out this [GROWTH FINDER](%s)" % url)
 model_path="pety.tflite"
 
-def load_model():
-    with open('hk.pkl', 'rb') as file:
-        data = pickle.load(file)
+with open('hk.pkl', 'rb') as file:
+    data = pickle.load(file)
     return data
-data = load_model()
 regressor=data["model"]
 BREED = data["BREED"]
 RIGHT_EYE_SIZE = data["RIGHT_EYE_SIZE"]
