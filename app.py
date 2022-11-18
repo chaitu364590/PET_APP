@@ -148,11 +148,10 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         Area = w * h
         Area=Area/240
         st.write("Area of a EYE is: %.2f" %Area)
-        ok = st.button("Predict AGE",key="1")
-        if ok:
-            AGE = regressor.predict(X)
-            st.subheader("The estimated AGE is :")
-            st.write(AGE)
+        st.markdown("__________________________")
+        AGE = regressor.predict(X)
+        st.subheader("The estimated AGE is :")
+        st.write(AGE)
 
     # Draw the bounding box and label on the image
     color = [int(c) for c in COLORS[class_id]]
