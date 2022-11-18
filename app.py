@@ -21,12 +21,7 @@ else:
 #st.write("check out this [GROWTH FINDER](%s)" % url)
 model_path="pety.tflite"
 
-with open('hk.pkl', 'rb') as file:
-    data = pickle.load(file)
-return data
-regressor=data["model"]
-BREED = data["BREED"]
-RIGHT_EYE_SIZE = data["RIGHT_EYE_SIZE"]
+
 # Load the labels into a list
 classes = ['lefteye','righteye','nose','left eye','right eye']
 #label_map = model.model_spec.config.label_map
@@ -125,9 +120,14 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         Area=Area/240
         st.write("Area of a EYE is: %.2f" %Area)
         ok = st.button("Predict AGE")
-        if ok:
-            AGE = regressor.predict(X)
-            st.subheader(f"The estimated AGE is ${AGE[0]:.2f}")
+        with open('hk.pkl', 'rb') as file:
+            data = pickle.load(file)
+            regressor=data["model"]
+            BREED = data["BREED"]
+            RIGHT_EYE_SIZE = data["RIGHT_EYE_SIZE"]
+            if ok:
+                AGE = regressor.predict(X)
+                st.subheader(f"The estimated AGE is ${AGE[0]:.2f}")
         
 
     # Draw the bounding box and label on the image
