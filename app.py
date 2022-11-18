@@ -107,7 +107,10 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
     xmax = int(xmax * original_image_np.shape[1])
     ymin = int(ymin * original_image_np.shape[0])
     ymax = int(ymax * original_image_np.shape[0])
-    st.write(xmax-xmin)
+    w=xmax-xmin
+    h=ymax-ymin
+    Area = w * h
+    print("Area of a EYE is: %.2f" %Area)
     #st.write(AreaofRectangle)
     # Find the class index of the current object
     class_id = int(obj['class_id'])
