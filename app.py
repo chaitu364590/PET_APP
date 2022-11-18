@@ -119,7 +119,7 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         Area = w * h
         Area=Area/240
         st.write("Area of a EYE is: %.2f" %Area)
-        ok = st.button("Predict AGE")
+        ok = st.button("Predict AGE",key="1")
         with open('hk.pkl', 'rb') as file:
             data = pickle.load(file)
             regressor=data["model"]
