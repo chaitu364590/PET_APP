@@ -22,8 +22,7 @@ def show_diff_page():
   detection = False
   frame_count = 0
   #_, image_video = camera.read()
-  while run:
-    _, image_video=camera.read()
+  _, image_video=camera.read()
   if st.button("REMOVE BACKGROUND"):
     my_bar = st.progress(0)
 
