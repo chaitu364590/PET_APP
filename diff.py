@@ -26,6 +26,10 @@ def show_diff_page():
   if st.button("REMOVE BACKGROUND"):
     my_bar = st.progress(0)
 
-    for percent_complete in range(1000):
+    for percent_complete in range(100):
         time.sleep(0.1)
         my_bar.progress(percent_complete + 1)
+        st.write("check your internet connection:")
+        st.markdown("************************")
+        
+        
