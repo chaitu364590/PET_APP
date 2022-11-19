@@ -12,10 +12,6 @@ def show_growth_page():
     
     image_file_A = st.file_uploader("Upload Image",type=['jpg','png','jpeg'],key="1")
     image_file_B = st.file_uploader("Upload Image",type=['jpg','png','jpeg'],key="2")
-    if st.button("BACKGROUND REMOVER"):
-        with st.spinner('Wait for it...'):
-        time.sleep(5)
-    st.success('Done!')
     if image_file_A is not None:
     	st.text("NOW")
     	# st.write(type(our_image))
