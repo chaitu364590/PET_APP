@@ -19,13 +19,7 @@ def show_predict_page():
     st.title("DOG AGE PREDICTION")
 
     st.write("""### We need some information to predict the AGE""")
-    import time
-
-    my_bar = st.progress(0)
-
-    for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 1)
+    
         
     BREED = ("German shepherd","Rottweiler","Saint Bernard","Doberman","Lab","Golden retriever","Great dane","Husky","Dalmatian","Cane corso","Beagle","Poodle","Pitbull","Sheltie","Bassett hound","Cocker spaniel","Australian shepherd","English spinger spaniel","Adghan hound","Pug","Daschund","Pomeranian","Chihuahua","Shihtzu","Maltese")
 
