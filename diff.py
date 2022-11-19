@@ -30,6 +30,8 @@ def show_diff_page():
         time.sleep(0.1)
         my_bar.progress(percent_complete + 1)
     st.write("check your internet connection:")
-    st.markdown("#$%@>>>>>>........")
+    #st.markdown("#$%@>>>>>>........")
+    e = RuntimeError('This is an exception of type RuntimeError')
+    st.exception(e)
         
         
