@@ -1,5 +1,6 @@
 import time
 import streamlit as st
+import cv2
 
 def show_diff_page():
   st.title("Live Feed")
