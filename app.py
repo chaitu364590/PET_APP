@@ -156,7 +156,7 @@ def run_odt_and_draw_results(image_path, interpreter, threshold=0.3):
         
         AGE = regressor.predict(W)
         st.subheader("The estimated AGE is :")
-        st.write(AGE/10)
+        st.write(AGE/16)
         st.markdown("__________________________")
 
     # Draw the bounding box and label on the image
