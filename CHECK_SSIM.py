@@ -9,7 +9,8 @@ import imutils
 import math
 
 def show_growth_page():
-    with st.spinner('Wait for it...'):
+    if st.button("BACKGROUND REMOVER"):
+        with st.spinner('Wait for it...'):
         time.sleep(500)
     st.success('Done!')
     image_file_A = st.file_uploader("Upload Image",type=['jpg','png','jpeg'],key="1")
