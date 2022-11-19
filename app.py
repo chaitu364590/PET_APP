@@ -15,12 +15,14 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 #st.set_page_config(page_title = "Cats vs Dogs Image Classification")
 st.title("PET APP")
 st.markdown("------")
-page = st.sidebar.selectbox("SELECT", ("GROWTH","AGE PREDICTION"))
+page = st.sidebar.selectbox("SELECT", ("GROWTH","AGE PREDICTION","BACKGROUND REMOVER"))
 
 if page == "GROWTH":
     show_growth_page()
-else:
+elif page =="AGE PREDICTION":
     show_predict_page()
+else:
+    show_diff_page()
 
 #url = "https://chaitu364590-checkssim-app7-epno5m.streamlit.app/"
 #st.write("check out this [GROWTH FINDER](%s)" % url)
